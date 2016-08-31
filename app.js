@@ -405,7 +405,7 @@ function receivedPostback(event) {
    else
     sendTextMessage(senderID, "Postback called - " + payload);
     
-    sendTextMessage(senderID, "Did you do any situps?");
+    setTimeout(function(){sendTextMessage(senderID, "Did you do any situps?")}, 3000);
 }
 
 /*
