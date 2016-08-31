@@ -326,7 +326,7 @@ function myFitness(recipientId){
         type: "template",
         payload: {
           template_type: "button",
-          text: "So how many push ups did you do today",
+          text: "So how many push ups did you do today handsome",
           buttons:[{
             type: "postback",
             title: "0-10",
