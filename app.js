@@ -308,11 +308,11 @@ function receivedMessage(event) {
         break;
 
       default:
-        sendTextMessage(senderID, messageText);
+        //sendTextMessage(senderID, messageText);
+        myFitness(senderID);
     }
   } else if (messageAttachments) {
-    //sendTextMessage(senderID, "Message with attachment received");
-    myFitness(senderID);
+    sendTextMessage(senderID, "Message with attachment received");    
   }
 }
 
