@@ -311,8 +311,41 @@ function receivedMessage(event) {
         sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
+    //sendTextMessage(senderID, "Message with attachment received");
+    myFitness(senderID);
   }
+}
+
+function myFitness(recipientId){
+    var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: "So how many push ups did you do today",
+          buttons:[{
+            type: "postback",
+            title: "0-10",
+            payload: "PUSHUP-1"
+          }, {
+            type: "postback",
+            title: "11-25",
+            payload: "PUSHUP-2"
+          }, {
+             type: "postback",
+            title: "26-50",
+            payload: "PUSHUP-3"
+          }]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
 }
 
 
@@ -363,7 +396,7 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
-  sendTextMessage(senderID, "Postback called");
+  sendTextMessage(senderID, "Postback called - " + payload);
 }
 
 /*
