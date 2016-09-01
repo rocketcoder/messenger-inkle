@@ -320,6 +320,7 @@ function receivedMessage(event) {
 
 function myFitness(recipientId){
     profileManager.getProfile(recipientId).then((profile) => {
+        console.log(profile);
         let messageText = "Hi ${profile.first_name}!  So how many push ups did you do today?"
         var messageData = {
             recipient: {
@@ -350,8 +351,9 @@ function myFitness(recipientId){
             }
         };  
         callSendAPI(messageData); 
-    }).catch((err) => { 
-        callSendAPI(err); 
+    }).catch((err) => {
+        console.log(err); 
+        callSendAPI("Awe nuts!  That darn programmer screwed up!  Don't worry we let him know."); 
     });
 }
 
