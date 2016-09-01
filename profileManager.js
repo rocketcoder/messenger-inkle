@@ -9,7 +9,7 @@ function ProfileManager(){
         console.log("calling profile manager");
         let graphPromise = new Promise((resolve, reject) => {
             request({
-                    uri: 'https://graph.facebook.com/v2.6/',
+                    uri: `https://graph.facebook.com/v2.6/${senderId}`,
                     qs: { fields : "first_name,last_name,locale,timezone,gender", access_token: PAGE_ACCESS_TOKEN },
                     method: 'GET'
                 }, function (error, response, body) {

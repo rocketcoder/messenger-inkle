@@ -321,7 +321,7 @@ function receivedMessage(event) {
 function myFitness(recipientId){
     profileManager.getProfile(recipientId).then((profile) => {
         console.log(profile);
-        let messageText = "Hi ${profile.first_name}!  So how many push ups did you do today?"
+        let messageText = `Hi ${profile.first_name}!  So how many push ups did you do today?`;
         var messageData = {
             recipient: {
                 id: recipientId
