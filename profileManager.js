@@ -14,8 +14,12 @@ function ProfileManager(){
                     method: 'GET'
                 }, function (error, response, body) {
                     if (!error && response.statusCode == 200) {
-                        console.log(body);
-                        resolve(body);
+                        try{
+                            resolve(JSON.parse(body));
+                        }
+                        catch(jsonParseError){
+                            reject(jsonParseError);
+                        }
                     }
                     else{
                         reject(error);
