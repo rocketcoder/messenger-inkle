@@ -16,7 +16,9 @@ const
   crypto = require('crypto'),
   express = require('express'),
   https = require('https'),  
-  request = require('request');
+  request = require('request'),
+  profileManager = require("./profileManager.js");
+   
 
 var app = express();
 app.set('port', process.env.PORT || 5000);
@@ -317,35 +319,40 @@ function receivedMessage(event) {
 }
 
 function myFitness(recipientId){
-    var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "button",
-          text: "So how many push ups did you do today",
-          buttons:[{
-            type: "postback",
-            title: "0-10",
-            payload: "PUSHUP-1"
-          }, {
-            type: "postback",
-            title: "11-25",
-            payload: "PUSHUP-2"
-          }, {
-             type: "postback",
-            title: "26-50",
-            payload: "PUSHUP-3"
-          }]
-        }
-      }
-    }
-  };  
-
-  callSendAPI(messageData);
+    profileManager.getProfile(recipientId).then((profile) => {
+        let messageText = "Hi ${profile.first_name}!  So how many push ups did you do today?"
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            message: {
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "button",
+                        text: messageText,
+                        buttons:[{
+                                type: "postback",
+                                title: "0-10",
+                                payload: "PUSHUP-1"
+                            }, {
+                                type: "postback",
+                                title: "11-25",
+                                payload: "PUSHUP-2"
+                            }, {
+                                type: "postback",
+                                title: "26-50",
+                                payload: "PUSHUP-3"
+                            }
+                    ]
+                    }
+                }
+            }
+        };  
+        callSendAPI(messageData); 
+    }).catch((err) => { 
+        callSendAPI(err); 
+    });    
 }
 
 
