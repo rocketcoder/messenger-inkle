@@ -352,7 +352,7 @@ function myFitness(recipientId){
         callSendAPI(messageData); 
     }).catch((err) => { 
         callSendAPI(err); 
-    });    
+    });
 }
 
 
