@@ -19,6 +19,7 @@ const
   request = require('request'),
   profileManager = require("./profileManager.js");
    
+let story = require("./chatDialogs/testCharDialogs.js");
 
 var app = express();
 app.set('port', process.env.PORT || 5000);
@@ -308,6 +309,9 @@ function receivedMessage(event) {
       case 'account linking':
         sendAccountLinking(senderID);
         break;
+        
+       case 'story':
+        sendTextMessage(senderID, story());
 
       default:
         //sendTextMessage(senderID, messageText);
