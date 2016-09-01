@@ -9,7 +9,7 @@ function ProfileManager(){
         let graphPromise = new Promise((resolve, reject) => {
             request({
                     uri: 'https://graph.facebook.com/v2.6/',
-                    qs: { fields : ["first_name","last_name","locale","timezone","gender"], access_token: PAGE_ACCESS_TOKEN },
+                    qs: { fields : "first_name,last_name,locale,timezone,gender", access_token: PAGE_ACCESS_TOKEN },
                     method: 'GET'
                 }, function (error, response, body) {
                     if (!error && response.statusCode == 200) {
