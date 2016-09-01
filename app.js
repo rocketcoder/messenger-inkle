@@ -19,7 +19,7 @@ const
   request = require('request'),
   profileManager = require("./profileManager.js");
    
-let story = require("./chatDialogs/testCharDialogs.js");
+let story = require("./chatDialogs/testChatDialogs.js");
 
 var app = express();
 app.set('port', process.env.PORT || 5000);
