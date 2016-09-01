@@ -2,7 +2,7 @@ var Story = require('inkjs').Story;
 var json = require('./testChatDialog.json');
 
 
-module.export = function (storyState){
+module.exports = function (storyState){
     var inkStory = new Story(json);
     if(storyState)
         inkStory.LoadJson(JSON.stringify(storyState));
