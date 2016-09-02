@@ -312,6 +312,7 @@ function receivedMessage(event) {
         
        case 'story':
         sendTextMessage(senderID, story());
+        break;
 
       default:
         //sendTextMessage(senderID, messageText);
