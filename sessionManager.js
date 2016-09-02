@@ -1,3 +1,4 @@
+"use strict"
 module.exports = (function (){
     let session = {};
     function getSession(senderId){
