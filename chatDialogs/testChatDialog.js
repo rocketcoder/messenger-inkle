@@ -8,7 +8,7 @@ module.exports = function (storyState){
         inkStory.LoadJson(JSON.stringify(storyState));
         
     if(inkStory.canContinue)
-        return inkStory.Continue();
+        return { "value" : inkStory.Continue(), "state" : inkStory.storyState }; 
     else
-        return null;    
+        return { "value" : null, "state" : inkStory.storyState };    
 }

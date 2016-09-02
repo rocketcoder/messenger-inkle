@@ -20,6 +20,7 @@ const
   profileManager = require("./profileManager.js");
    
 let story = require("./chatDialogs/testChatDialog.js");
+let sessionManager = require("./sessionManager.js");
 
 var app = express();
 app.set('port', process.env.PORT || 5000);
@@ -311,7 +312,10 @@ function receivedMessage(event) {
         break;
         
        case 'story':
-        sendTextMessage(senderID, story());
+        let userSession = sessionManager.getSession(senderID);
+        let storyResult = story(userSession);
+        sendTextMessage(senderID, storyResult.value);    
+        sessionManager.setSession(senderID, storyResult.state);
         break;
 
       default:
