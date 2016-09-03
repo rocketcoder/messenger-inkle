@@ -6,10 +6,10 @@ var json = require('./testChatDialog.json');
 module.exports = function (storyState){
     var inkStory = new Story(json);
     if(storyState)
-        inkStory.LoadJson(storyState);
+        inkStory.state.LoadJson(storyState);
         
     if(inkStory.canContinue)
-        return { "value" : inkStory.Continue(), "state" : inkStory.storyState }; 
+        return { "value" : inkStory.Continue(), "state" : inkStory.state.ToJson() }; 
     else
-        return { "value" : null, "state" : inkStory.storyState.json };    
+        return { "value" : null, "state" : inkStory.state.ToJson() };    
 }
