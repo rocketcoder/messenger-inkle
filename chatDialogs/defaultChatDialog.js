@@ -15,11 +15,11 @@ module.exports = function (senderId, storyState, selectedChoiceIndex){
     }
       
     if(inkStory.canContinue){  
-        let messageText = inkStory.Continue();
+        let messageText = inkStory.ContinueMaximally();
     
         if(inkStory.currentChoices.length > 0){                
-            let renderedChoices = choiceFormatter(senderId, messageText, inkStory.currentChoices);
-            return { "value" : renderedChoices, "state" : inkStory.state.toJson() };
+            let renderedChoices = choiceFormatter(senderId, inkStory.currentChoices);
+            return { "value" : messageText , "choices" : renderedChoices, "state" : inkStory.state.toJson() };
         }
         else 
             return { "value" : messageText, "state" : inkStory.state.toJson() };        

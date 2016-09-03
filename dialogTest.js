@@ -14,7 +14,10 @@ function sendTextMessage(senderId, text){
 
 function nextMessage(senderID, selection){
     let userSession = sessionManager.getSession(senderID);
-    let storyResult = story(senderID, userSession, selection); 
+    let storyResult = story(senderID, userSession, selection);     
     sendTextMessage(senderID, storyResult.value);
+    if(storyResult.choices){
+        sendTextMessage(senderID, storyResult.choices);
+    }
     sessionManager.setSession(senderID, storyResult.state);
 }

@@ -1,5 +1,5 @@
 "use strict"
-module.exports = function(senderId, messageText, choices){
+module.exports = function(senderId, choices){
      var messageData = {
     recipient: {
       id: senderId
@@ -20,7 +20,7 @@ module.exports = function(senderId, messageText, choices){
         messageData.message.attachment.payload.elements.push(
         {
             title: "Option " + i,
-            subtitle: messageText,
+            subtitle: choice.text,
             buttons : [{ type: "postback", title: choice.text, payload: i }]
         });
     }
