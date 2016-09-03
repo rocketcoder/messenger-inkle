@@ -317,7 +317,8 @@ function receivedMessage(event) {
 
       default:
         //sendTextMessage(senderID, messageText);
-        myFitness(senderID);
+        //myFitness(senderID);
+        nextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");    
