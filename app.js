@@ -440,7 +440,7 @@ function receivedPostback(event) {
     
     setTimeout(function(){sendTextMessage(senderID, "Did you do any situps?")}, 3000);
     */
-     nextMessage(senderID);
+     nextMessage(senderID, payload);
 }
 
 /*
