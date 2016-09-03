@@ -11,9 +11,7 @@ module.exports = function(senderId, messageText, choices){
           template_type: "generic",
           elements: [{
             title: "rift",
-            subtitle: "Next-generation virtual reality",
-            item_url: "https://www.oculus.com/en-us/rift/",               
-            image_url: "https://fitessbot.azurewebsites.net" + "/assets/rift.png",
+            subtitle: "Next-generation virtual reality",            
             buttons: [{
               type: "web_url",
               url: "https://www.oculus.com/en-us/rift/",
@@ -25,9 +23,7 @@ module.exports = function(senderId, messageText, choices){
             }],
           }, {
             title: "touch",
-            subtitle: "Your Hands, Now in VR",
-            item_url: "https://www.oculus.com/en-us/touch/",               
-            image_url: "https://fitessbot.azurewebsites.net" + "/assets/touch.png",
+            subtitle: "Your Hands, Now in VR",           
             buttons: [{
               type: "web_url",
               url: "https://www.oculus.com/en-us/touch/",
