@@ -6,11 +6,10 @@ module.exports = function(senderId, messageText, choices){
             },          
             message: {
                 attachment: {
-                    type: "template",
+                    type: "template",                   
                     payload: {
-                        template_type: "button",
-                        text: messageText,
-                        buttons : []
+                        template_type: "generic",   
+                        elements: []                     
                     }
                 }
             }
@@ -18,11 +17,13 @@ module.exports = function(senderId, messageText, choices){
          
     for (let i = 0; i < choices.length; ++i) {
         let choice = choices[i];        
-        messageData.message.attachment.payload.buttons.push({ type: "postback", title: choice.text, payload: i });
+        messageData.message.attachment.payload.elements.push(
+        {
+            title: "",
+            subtitle: messageText,
+            buttons : [{ type: "postback", title: choice.text, payload: i }]
+        });
     }
     
     return JSON.stringify(messageData);   
 }
-
-
-

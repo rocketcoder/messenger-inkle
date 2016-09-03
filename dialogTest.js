@@ -5,7 +5,7 @@ let senderID = "1213212121";
 
 
 nextMessage(senderID);
-nextMessage(senderID,0);
+nextMessage(senderID,2);
 
     
 function sendTextMessage(senderId, text){
