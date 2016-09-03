@@ -15,7 +15,7 @@ module.exports = function (senderId, storyState, selectedChoiceIndex){
     }
       
     if(inkStory.canContinue){  
-        let messageText = inkStory.ContinueMaximally();
+        let messageText = inkStory.Continue();
     
         if(inkStory.currentChoices.length > 0){                
             let renderedChoices = choiceFormatter(senderId, inkStory.currentChoices);
