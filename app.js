@@ -426,6 +426,7 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
+  /*
   if(payload == "PUSHUP-1")
     sendTextMessage(senderID, "What!! Drop and give me 10 pushups now!");
    else if(payload == "PUSHUP-2")
@@ -436,6 +437,8 @@ function receivedPostback(event) {
     sendTextMessage(senderID, "Postback called - " + payload);
     
     setTimeout(function(){sendTextMessage(senderID, "Did you do any situps?")}, 3000);
+    */
+     nextMessage(senderID);
 }
 
 /*
