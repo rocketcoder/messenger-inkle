@@ -328,8 +328,14 @@ function receivedMessage(event) {
 
 function nextMessage(senderID, selection){
     let userSession = sessionManager.getSession(senderID);
-    let storyResult = story(senderID, userSession, selection);    
-    sendTextMessage(senderID, storyResult.value);
+    let storyResult = story(senderID, userSession, selection);
+    let apiJson = storyResult.value;
+    try{
+        callSendAPI(JSON.parse(apiJson));
+    }    
+    catch(e){
+        sendTextMessage(senderID, storyResult.value);
+    }
     sessionManager.setSession(senderID, storyResult.state);
 }
 
