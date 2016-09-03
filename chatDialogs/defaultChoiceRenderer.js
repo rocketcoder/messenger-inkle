@@ -1,9 +1,28 @@
 "use strict"
-module.exports = function(choices){    
-    let choicesArray = [];    
+module.exports = function(senderId, messageText, choices){
+     let messageData = { 
+            recipient: {
+                id: senderId
+            },          
+            message: {
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "button",
+                        text: messageText,
+                        buttons : []
+                    }
+                }
+            }
+     };
+         
     for (let i = 0; i < choices.length; ++i) {
-        let choice = choices[i];
-        choicesArray.push("Choice " + (i + 1) + ". " + choice.text);        
+        let choice = choices[i];        
+        messageData.message.attachment.payload.buttons.push({ type: "postback", title: choice.text, payload: i });
     }
-    return choicesArray.join("\n");    
+    
+    return JSON.stringify(messageData);   
 }
+
+
+

@@ -19,7 +19,7 @@ const
   request = require('request'),
   profileManager = require("./profileManager.js");
    
-let story = require("./chatDialogs/testChatDialog.js");
+let story = require("./chatDialogs/defaultChatDialog.js");
 let sessionManager = require("./sessionManager.js");
 
 var app = express();
@@ -328,7 +328,7 @@ function receivedMessage(event) {
 
 function nextMessage(senderID, selection){
     let userSession = sessionManager.getSession(senderID);
-    let storyResult = story(userSession, selection); 
+    let storyResult = story(senderID, userSession, selection);    
     sendTextMessage(senderID, storyResult.value);
     sessionManager.setSession(senderID, storyResult.state);
 }
