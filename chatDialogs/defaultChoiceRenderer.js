@@ -12,18 +12,26 @@ module.exports = function(senderId, messageText, choices){
           elements: [{
             title: "rift",
             subtitle: "Next-generation virtual reality",            
-            buttons: [],
+            buttons: [{
+              type: "postback",
+              title: "Call Postback",
+              payload: "1",
+            }],
           }, {
             title: "touch",
             subtitle: "Your Hands, Now in VR",           
-            buttons: []
+            buttons: [ {
+              type: "postback",
+              title: "Call Postback",
+              payload: "2",
+            }]
           }]
         }
       }
     }
   };  
-         /*
-    for (let i = 0; i < choices.length; ++i) {
+         
+    /*for (let i = 0; i < choices.length; ++i) {
         let choice = choices[i];        
         messageData.message.attachment.payload.elements.push(
         {
