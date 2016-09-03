@@ -312,10 +312,7 @@ function receivedMessage(event) {
         break;
         
        case 'story':
-        let userSession = sessionManager.getSession(senderID);
-        let storyResult = story(userSession);
-        sendTextMessage(senderID, storyResult.value);    
-        sessionManager.setSession(senderID, storyResult.state);
+        nextMessage(senderID)
         break;
 
       default:
@@ -325,6 +322,14 @@ function receivedMessage(event) {
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");    
   }
+}
+
+
+function nextMessage(senderID, selection){
+    let userSession = sessionManager.getSession(senderID);
+    let storyResult = story(userSession, selection); 
+    sendTextMessage(senderID, storyResult.value);
+    sessionManager.setSession(senderID, storyResult.state);
 }
 
 function myFitness(recipientId){
