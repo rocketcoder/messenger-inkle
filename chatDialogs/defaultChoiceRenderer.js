@@ -9,23 +9,7 @@ module.exports = function(senderId, messageText, choices){
         type: "template",
         payload: {
           template_type: "generic",
-          elements: [{
-            title: "rift",
-            subtitle: "Next-generation virtual reality",            
-            buttons: [{
-              type: "postback",
-              title: "Call Postback",
-              payload: "1",
-            }],
-          }, {
-            title: "touch",
-            subtitle: "Your Hands, Now in VR",           
-            buttons: [ {
-              type: "postback",
-              title: "Call Postback",
-              payload: "2",
-            }]
-          }]
+          elements: []
         }
       }
     }
