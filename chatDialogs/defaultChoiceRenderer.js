@@ -12,33 +12,17 @@ module.exports = function(senderId, messageText, choices){
           elements: [{
             title: "rift",
             subtitle: "Next-generation virtual reality",            
-            buttons: [{
-              type: "web_url",
-              url: "https://www.oculus.com/en-us/rift/",
-              title: "Open Web URL"
-            }, {
-              type: "postback",
-              title: "Call Postback",
-              payload: "1",
-            }],
+            buttons: [],
           }, {
             title: "touch",
             subtitle: "Your Hands, Now in VR",           
-            buttons: [{
-              type: "web_url",
-              url: "https://www.oculus.com/en-us/touch/",
-              title: "Open Web URL"
-            }, {
-              type: "postback",
-              title: "Call Postback",
-              payload: "2",
-            }]
+            buttons: []
           }]
         }
       }
     }
   };  
-         /*
+         
     for (let i = 0; i < choices.length; ++i) {
         let choice = choices[i];        
         messageData.message.attachment.payload.elements.push(
@@ -48,7 +32,7 @@ module.exports = function(senderId, messageText, choices){
             buttons : [{ type: "postback", title: choice.text, payload: i }]
         });
     }
-    */
+    
     
     return JSON.stringify(messageData);   
 }
