@@ -8,7 +8,9 @@ module.exports = function(senderId, messageText, choices){
                 attachment: {
                     type: "template",                   
                     payload: {
-                        template_type: "generic",   
+                        template_type: "generic",  
+                        item_url: "https://www.oculus.com/en-us/rift/",               
+                        image_url: "", 
                         elements: []                     
                     }
                 }
@@ -19,7 +21,7 @@ module.exports = function(senderId, messageText, choices){
         let choice = choices[i];        
         messageData.message.attachment.payload.elements.push(
         {
-            title: "",
+            title: "Option " + i,
             subtitle: messageText,
             buttons : [{ type: "postback", title: choice.text, payload: i }]
         });
