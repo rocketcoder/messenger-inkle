@@ -329,15 +329,17 @@ function receivedMessage(event) {
 function nextMessage(senderID, selection){
     let userSession = sessionManager.getSession(senderID);
     let storyResult = story(senderID, userSession, selection);
-    let apiJson = storyResult.value;
-    try{
-        callSendAPI(JSON.parse(apiJson));
-    }    
-    catch(e){
-        sendTextMessage(senderID, storyResult.value);
-    }
+    let text = storyResult.value;
+    let choices = storyResult.choices;        
+    sendTextMessage(senderID, storyResult.value);
+    if(choices)   
+        callSendAPI(JSON.parse(choices));
+    }   
+    
     sessionManager.setSession(senderID, storyResult.state);
 }
+
+
 
 function myFitness(recipientId){
     profileManager.getProfile(recipientId).then((profile) => {
