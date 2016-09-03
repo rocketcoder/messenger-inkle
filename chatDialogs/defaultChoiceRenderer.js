@@ -22,7 +22,7 @@ module.exports = function(senderId, messageText, choices){
       }
     }
   };  
-         
+         /*
     for (let i = 0; i < choices.length; ++i) {
         let choice = choices[i];        
         messageData.message.attachment.payload.elements.push(
@@ -32,7 +32,7 @@ module.exports = function(senderId, messageText, choices){
             buttons : [{ type: "postback", title: choice.text, payload: i }]
         });
     }
-    
+    */
     
     return JSON.stringify(messageData);   
 }
