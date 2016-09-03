@@ -331,8 +331,8 @@ function nextMessage(senderID, selection){
     let storyResult = story(senderID, userSession, selection);
     let text = storyResult.value;
     let choices = storyResult.choices;        
-    sendTextMessage(senderID, storyResult.value);
-    if(choices)   
+    sendTextMessage(senderID, text);
+    if(choices){
         callSendAPI(JSON.parse(choices));
     }   
     
