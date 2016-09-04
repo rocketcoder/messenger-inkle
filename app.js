@@ -341,7 +341,7 @@ function nextMessage(senderID, selection){
 }
 
 function clearSession(senderID){
-    sessionManager.setSession(senderID, {});
+    //sessionManager.setSession(senderID, {});
 }
 
 
