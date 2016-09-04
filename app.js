@@ -312,8 +312,8 @@ function receivedMessage(event) {
         break;
         
        case 'story':
-        clearSeesion();
-        nextMessage(senderID)
+        clearSeesion(senderID);
+        nextMessage(senderID);
         break;
 
       default:
@@ -340,7 +340,7 @@ function nextMessage(senderID, selection){
     sessionManager.setSession(senderID, storyResult.state);
 }
 
-function clearSession(){
+function clearSession(senderID){
     sessionManager.setSession(senderID, null);
 }
 
