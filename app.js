@@ -312,7 +312,7 @@ function receivedMessage(event) {
         break;
         
       case 'story':
-        clearSeesion(senderID);
+        //clearSeesion(senderID);
         nextMessage(senderID);
         break;
 
