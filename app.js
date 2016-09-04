@@ -311,8 +311,8 @@ function receivedMessage(event) {
         sendAccountLinking(senderID);
         break;
         
-      case 'story':
-        //clearSeesion(senderID);
+       case 'story':
+        sessionManager.setSession(senderID, null);
         nextMessage(senderID);
         break;
 
@@ -338,10 +338,6 @@ function nextMessage(senderID, selection){
     }   
     
     sessionManager.setSession(senderID, storyResult.state);
-}
-
-function clearSession(senderID){
-    //sessionManager.setSession(senderID, {});
 }
 
 
