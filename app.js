@@ -314,6 +314,7 @@ function receivedMessage(event) {
        case 'story':
         sessionManager.setSession(senderID, null);
         nextMessage(senderID);
+        setTimeout(function(){ nextMessage(senderID); }, 1000);
         break;
 
       default:
