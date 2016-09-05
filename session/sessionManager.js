@@ -1,5 +1,5 @@
 "use strict"
-let profileManager = require('./profileManager.js');
+let ProfileManager = require('./profileManager.js');
 
 module.exports = function (fbPageAccessToken){    
     //In Memory session caches.... maybe one day or Blob storage, nosql db?
@@ -15,8 +15,8 @@ module.exports = function (fbPageAccessToken){
             resolve(sessionObj);             
         });
                     
-        return Promise.all([profilePromise, sessionPromise]).then((profile, session) => {
-           return { profile : profile, session: session }; 
+        return Promise.all([profilePromise, sessionPromise]).then((profileAndSession) => {
+           return { profile : profileAndSession[0], session: profileAndSession[1] }; 
         });        
     }
     
@@ -34,7 +34,7 @@ module.exports = function (fbPageAccessToken){
     function getProfile(senderId){
         let profilesPromise = new Promise((resolve, reject) => { 
             if(profileEnabled === true && !profiles[senderId]){
-                new profileManager(faceBookPageAccessToken).getProfile(senderId).then((profile) => {
+                new ProfileManager(faceBookPageAccessToken).getProfile(senderId).then((profile) => {
                     profiles[senderId] = profile;     
                     resolve(profile);               
                 }).catch((err) => {
