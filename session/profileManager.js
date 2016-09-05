@@ -1,10 +1,7 @@
 "use strict"
 const request = require("request");
-const config = require("config");
-const PAGE_ACCESS_TOKEN = (process.env.MESSENGER_PAGE_ACCESS_TOKEN) ?
-  (process.env.MESSENGER_PAGE_ACCESS_TOKEN) :
-  config.get('pageAccessToken');
-function ProfileManager(){
+
+function ProfileManager(PAGE_ACCESS_TOKEN){      
     this.getProfile = (senderId) => {
         console.log("calling profile manager");
         let graphPromise = new Promise((resolve, reject) => {
@@ -30,4 +27,4 @@ function ProfileManager(){
     };
 }
 
-module.exports = new ProfileManager();
+module.exports = ProfileManager;
