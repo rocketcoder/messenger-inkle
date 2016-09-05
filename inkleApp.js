@@ -265,7 +265,7 @@ function receivedMessage(event) {
 
       default:       
         sessionManager.getSession(senderID).then((sessionInformation) => {            
-            if(sessionInformation.session && messageText.toLowerCase().indexOf("y") >= 0){            
+            if(sessionInformation.session ||  (!sessionInformation.session && messageText.toLowerCase().indexOf("y") >= 0)){            
                 nextMessage(senderID);
                 setTimeout(function(){ nextMessage(senderID); }, 1000);    
             }
