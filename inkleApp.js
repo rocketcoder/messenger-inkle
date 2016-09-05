@@ -272,7 +272,7 @@ function receivedMessage(event) {
             else{
                 
                 let profile = sessionInformation.profile;
-                sendTextMessage(senderID, `hi .  do you want to play a game?` );                
+                sendTextMessage(senderID, `hi ${profile.first_name}.  do you want to play a game?` );                
                 setTimeout(function(){ nextMessage(senderID); }, 1000);    
            }            
         });
