@@ -263,11 +263,8 @@ function receivedMessage(event) {
         sendAccountLinking(senderID);
         break;
 
-      default:
-        sendTextMessage(senderID, `hi .  do you want to play a game?` );
-        /*
-        sessionManager.getSession(senderID).then((sessionInformation) => {
-            
+      default:       
+        sessionManager.getSession(senderID).then((sessionInformation) => {            
             if(sessionInformation.session){            
                 nextMessage(senderID);
                 setTimeout(function(){ nextMessage(senderID); }, 1000);    
@@ -279,7 +276,6 @@ function receivedMessage(event) {
                 setTimeout(function(){ nextMessage(senderID); }, 1000);    
            }            
         });
-        */
         
     }
   } else if (messageAttachments) {
