@@ -1,6 +1,6 @@
 "use strict"
 let Story = require('inkjs').Story;
-let json = require('./testChatDialog.json');
+let json = require('./inkjsFiles/testChatDialog.json');
 let choiceFormatter = require('./defaultChoiceRenderer.js');
 
 module.exports = function (senderId, storyState, selectedChoiceIndex){
