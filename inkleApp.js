@@ -265,15 +265,16 @@ function receivedMessage(event) {
 
       default:       
         sessionManager.getSession(senderID).then((sessionInformation) => {            
-            if(sessionInformation.session){            
+            if(sessionInformation.session && messageText.toLowerCase().indexOf("y") >= 0){            
                 nextMessage(senderID);
                 setTimeout(function(){ nextMessage(senderID); }, 1000);    
             }
-            else{
-                
+            else if(messageText.toLowerCase().indexOf("n") >= 0){
+                sendTextMessage(senderID, `ok.  But you are no fun.` );
+            }
+            else{                
                 let profile = sessionInformation.profile;
-                sendTextMessage(senderID, `hi ${profile.first_name}.  do you want to play a game?` );                
-                setTimeout(function(){ nextMessage(senderID); }, 1000);    
+                sendTextMessage(senderID, `hi ${profile.first_name}.  do you want to play a game?` );  
            }            
         });
         
