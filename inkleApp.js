@@ -264,6 +264,7 @@ function receivedMessage(event) {
         break;
 
       default:
+        sendTextMessage(senderID, `hi .  do you want to play a game?` );
         sessionManager.getSession(senderID).then((sessionInformation) => {
             /*
             if(sessionInformation.session){            
