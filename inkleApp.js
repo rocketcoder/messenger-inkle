@@ -265,19 +265,21 @@ function receivedMessage(event) {
 
       default:
         sendTextMessage(senderID, `hi .  do you want to play a game?` );
+        /*
         sessionManager.getSession(senderID).then((sessionInformation) => {
-            /*
+            
             if(sessionInformation.session){            
                 nextMessage(senderID);
                 setTimeout(function(){ nextMessage(senderID); }, 1000);    
             }
             else{
-                */
+                
                 let profile = sessionInformation.profile;
                 sendTextMessage(senderID, `hi .  do you want to play a game?` );                
                 setTimeout(function(){ nextMessage(senderID); }, 1000);    
-           // }            
+           }            
         });
+        */
         
     }
   } else if (messageAttachments) {
